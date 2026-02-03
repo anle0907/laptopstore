@@ -23,39 +23,12 @@
                 <div id="layoutSidenav_content">
                     <main>
                         <div class="container-fluid px-4">
-                            <h1 class="mt-4">User Details</h1>
+                            <h1 class="mt-4">Manage Orders</h1>
                             <ol class="breadcrumb mb-4">
                                 <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                <li class="breadcrumb-item active">User Details</li>
+                                <li class="breadcrumb-item active">Orders</li>
                             </ol>
-                            <div class="mt-5">
-
-                                <div class="row">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>
-                                            User Detail ${id}
-                                        </h3>
-
-                                        <hr />
-                                        <div class="card" style="width:60%;">
-                                            <div class="card-header">
-                                                User Information
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"> ID: ${user.id} </li>
-                                                <li class="list-group-item"> Email: ${user.email}</li>
-                                                <li class="list-group-item"> Phone: ${user.phone}</li>
-                                                <li class="list-group-item"> Full Name: ${user.fullName}</li>
-                                                <li class="list-group-item"> Address: ${user.address}</li>
-                                            </ul>
-                                            <a href="/admin/user" class="btn btn-success mt-3">Back</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
+                            <div>Order</div>
                         </div>
                     </main>
                     <jsp:include page="../layout/footer.jsp" />

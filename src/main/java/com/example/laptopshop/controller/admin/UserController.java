@@ -1,4 +1,4 @@
-package com.example.laptopshop.controller.user;
+package com.example.laptopshop.controller.admin;
 
 import java.util.List;
 

@@ -1,60 +1,73 @@
-<!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <!DOCTYPE html>
+        <html lang="en">
 
-            <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            <meta name="description" content="" />
+            <meta name="author" content="" />
+            <title>Dashboard - SB Admin</title>
+            <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+            <link href="/css/styles.css" rel="stylesheet" />
+            <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        </head>
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Delete User ${id}</title>
+        <body class="sb-nav-fixed">
+            <jsp:include page="../layout/header.jsp" />
 
-                <!-- Bootstrap CSS -->
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-                <!-- Bootstrap JS -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <div id="layoutSidenav">
+                <jsp:include page="../layout/sidebar.jsp" />
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid px-4">
+                            <h1 class="mt-4">User Delete</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                                <li class="breadcrumb-item active">User Delete</li>
+                            </ol>
+                            <div class="container mt-5">
 
-                <!-- jQuery (không bắt buộc, nhưng giữ theo code bạn) -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-            </head>
+                                <div class="row">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>
+                                            Delete User ${id}
+                                        </h3>
 
-            <body>
-                <div class="container mt-5">
+                                        <hr />
 
-                    <div class="row">
-                        <div class="d-flex justify-content-between">
-                            <h3>
-                                Delete User ${id}
-                            </h3>
+                                        <div class="alert alert-danger">
+                                            Are you sure to delete this user ?
+                                        </div>
 
-                            <hr />
+                                        <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
 
-                            <div class="alert alert-danger">
-                                Are you sure to delete this user ?
-                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">ID: </label>
+                                                <form:input value="${id}" type="text" class="form-control" path="id" />
+                                            </div>
+                                            <button class="btn btn-danger">
+                                                Confirm
+                                            </button>
 
-                            <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
+                                        </form:form>
 
-                                <div class="mb-3">
-                                    <label class="form-label">ID: </label>
-                                    <form:input value="${id}" type="text" class="form-control" path="id" />
+                                    </div>
                                 </div>
-                                <button class="btn btn-danger">
-                                    Confirm
-                                </button>
 
-                            </form:form>
 
+
+                            </div>
                         </div>
-                    </div>
-
-
-
+                    </main>
+                    <jsp:include page="../layout/footer.jsp" />
                 </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                crossorigin="anonymous"></script>
+            <script src="js/scripts.js"></script>
+        </body>
 
-                <!-- Bootstrap JS -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-            </body>
-
-            </html>
+        </html>
