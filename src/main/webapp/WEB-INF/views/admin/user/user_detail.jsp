@@ -24,40 +24,67 @@
                     <main>
                         <div class="container-fluid px-4">
                             <h1 class="mt-4">User Details</h1>
+
                             <ol class="breadcrumb mb-4">
-                                <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                                <li class="breadcrumb-item">
+                                    <a href="/admin">Dashboard</a>
+                                </li>
                                 <li class="breadcrumb-item active">User Details</li>
                             </ol>
-                            <div class="mt-5">
 
-                                <div class="row">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>
-                                            User Detail ${id}
-                                        </h3>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-lg-6 col-md-8">
+                                    <div class="card shadow-sm border-0">
 
-                                        <hr />
-                                        <div class="card" style="width:60%;">
-                                            <div class="card-header">
+                                        <!-- Card Header -->
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">
+                                                <i class="fa-solid fa-user me-2"></i>
                                                 User Information
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"> ID: ${user.id} </li>
-                                                <li class="list-group-item"> Email: ${user.email}</li>
-                                                <li class="list-group-item"> Phone: ${user.phone}</li>
-                                                <li class="list-group-item"> Full Name: ${user.fullName}</li>
-                                                <li class="list-group-item"> Address: ${user.address}</li>
-                                            </ul>
-                                            <a href="/admin/user" class="btn btn-success mt-3">Back</a>
+                                            </h5>
                                         </div>
+
+                                        <!-- Card Body -->
+                                        <div class="card-body p-4">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <span class="fw-semibold">ID</span>
+                                                    <span>${user.id}</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <span class="fw-semibold">Email</span>
+                                                    <span>${user.email}</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <span class="fw-semibold">Phone</span>
+                                                    <span>${user.phone}</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <span class="fw-semibold">Full Name</span>
+                                                    <span><strong
+                                                            style="color: yellowgreen;">${user.fullName}</strong></span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <span class="fw-semibold">Address</span>
+                                                    <span>${user.address}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Card Footer -->
+                                        <div class="card-footer text-end bg-light">
+                                            <a href="/admin/user" class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-arrow-left me-1"></i>
+                                                Back to User List
+                                            </a>
+                                        </div>
+
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </main>
+
                     <jsp:include page="../layout/footer.jsp" />
                 </div>
             </div>
