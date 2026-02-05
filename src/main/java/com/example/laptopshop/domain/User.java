@@ -30,13 +30,31 @@ public class User {
     // User many -> to one -> Role
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Role role;
+    private Role role; // -> Object
 
     // 1 user -> n order
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
-    // getter
+    // getter , setter Role -> Object
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    // getter , setter Order
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    // getter field
     public long getId() {
         return this.id;
     }

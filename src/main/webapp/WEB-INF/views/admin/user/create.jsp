@@ -14,6 +14,25 @@
                 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+
+                        const avatarFile = $("#avatarFile");
+
+                        avatarFile.on("change", function (e) {
+
+                            if (e.target.files && e.target.files[0]) {
+                                const imgURL = URL.createObjectURL(e.target.files[0]);
+
+                                $("#avatarPreview").attr("src", imgURL).show();
+                            }
+
+                        });
+
+                    });
+                </script>
+
             </head>
 
             <body class="sb-nav-fixed">
@@ -37,41 +56,63 @@
                                                     <h3 class="text-center mb-4">Create User</h3>
 
                                                     <form:form method="post" action="/admin/user/create"
-                                                        modelAttribute="newUser">
-                                                        <div class="mb-3">
+                                                        modelAttribute="newUser" class="row"
+                                                        enctype="multipart/form-data">
+                                                        <div class="mb-3 col-12 col-md-6">
                                                             <label class="form-label">Email address</label>
                                                             <form:input type="email" class="form-control"
                                                                 placeholder="Enter email" path="email" />
                                                         </div>
 
-                                                        <div class="mb-3">
+                                                        <div class="mb-3 col-12 col-md-6">
                                                             <label class="form-label">Password</label>
                                                             <form:password path="password" class="form-control"
                                                                 placeholder="Enter password" />
                                                         </div>
 
 
-                                                        <div class=" mb-3">
+                                                        <div class=" mb-3 col-12 col-md-6">
                                                             <label class="form-label">Phone</label>
                                                             <form:input type="text" class="form-control"
                                                                 placeholder="Enter phone" path="phone" />
                                                         </div>
 
-                                                        <div class="mb-3">
+                                                        <div class="mb-3 col-12 col-md-6">
                                                             <label class="form-label">Full Name</label>
                                                             <form:input type="text" class="form-control"
                                                                 placeholder="Enter full name" path="fullName" />
                                                         </div>
 
-                                                        <div class="mb-3">
+                                                        <div class="mb-3 col-12 col-md-6">
                                                             <label class="form-label">Address</label>
                                                             <form:input type="text" class="form-control"
                                                                 placeholder="Enter address" path="address" />
                                                         </div>
 
-                                                        <button type="submit" class="btn btn-primary w-100">
-                                                            Create
-                                                        </button>
+                                                        <div class="mb-3 col-12 col-md-6">
+                                                            <label class="form-label"> Role: </label>
+                                                            <form:select class="form-select" path="role.id">
+                                                                <form:option value="1">ADMIN</form:option>
+                                                                <form:option value="2">USER</form:option>
+                                                            </form:select>
+                                                        </div>
+
+                                                        <div class="mb-3 col-12 col-md-6">
+                                                            <label for="avatarFile" class="form-label"> Avatar: </label>
+                                                            <input class="form-control" type="file" id="avatarFile"
+                                                                multiple accept=".png, .jpg, .jpeg" name="anFile" />
+                                                        </div>
+
+                                                        <div class="col-12 mb-3">
+                                                            <img style="max-height: 250px; display: none;"
+                                                                alt="Avatar preview" id="avatarPreview">
+                                                        </div>
+
+                                                        <div class="col-12 mb-3">
+                                                            <button type="submit" class="btn btn-primary w-100">
+                                                                Create
+                                                            </button>
+                                                        </div>
                                                     </form:form>
 
                                                 </div>
